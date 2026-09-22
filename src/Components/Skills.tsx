@@ -6,48 +6,23 @@ function Skills() {
         <h2>What I Work With</h2>
       </div>
 
-      <div className="skills-grid">
-        <div className="skill-card">
-          <h3>Languages</h3>
-          <ul>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>React</li>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>Next JS</li>
-          </ul>
-        </div>
-
-        <div className="skill-card">
-          <h3>Frontend</h3>
-          <ul>
-            <li>React.js</li>
-            <li>Tailwind CSS</li>
-            <li>Responsive Design</li>
-            <li>UI/UX Basics</li>
-          </ul>
-        </div>
-
-        <div className="skill-card">
-          <h3>Tools</h3>
-          <ul>
-            <li>Git & GitHub</li>
-            <li>VS Code</li>
-            <li>Figma</li>
-            <li>Postman</li>
-          </ul>
-        </div>
-
-        <div className="skill-card">
-          <h3>Other</h3>
-          <ul>
-            <li>REST APIs (Basic)</li>
-            <li>JSON</li>
-            <li>Version Control</li>
-            <li>Debugging</li>
-          </ul>
-        </div>
+      <div className="skills-tags" aria-label="Technical skills">
+        <div className="skill-tag">JavaScript</div>
+        <div className="skill-tag">Python</div>
+        <div className="skill-tag">React</div>
+        <div className="skill-tag">HTML5</div>
+        <div className="skill-tag">CSS3</div>
+        <div className="skill-tag">Next.js</div>
+        <div className="skill-tag">Tailwind CSS</div>
+        <div className="skill-tag">Responsive Design</div>
+        <div className="skill-tag">UI/UX Basics</div>
+        <div className="skill-tag">Git &amp; GitHub</div>
+        <div className="skill-tag">VS Code</div>
+        <div className="skill-tag">Figma</div>
+        <div className="skill-tag">Postman</div>
+        <div className="skill-tag">REST APIs</div>
+        <div className="skill-tag">JSON</div>
+        <div className="skill-tag">Debugging</div>
       </div>
     </section>
   );

@@ -8,14 +8,17 @@ function Certifications() {
 
       <div className="cert-grid">
         <div className="cert-card">
+          <span className="cert-icon" aria-hidden="true">✓</span>
           <h3>JavaScript Algorithms and Data Structures</h3>
           <p>freeCodeCamp • Apr 2026</p>
         </div>
         <div className="cert-card">
+          <span className="cert-icon" aria-hidden="true">✓</span>
           <h3>Python for Everybody</h3>
           <p>Coursera • Jun 2026</p>
         </div>
         <div className="cert-card">
+          <span className="cert-icon" aria-hidden="true">✓</span>
           <h3>React (Basic)</h3>
           <p>Udemy • May 2026</p>
         </div>

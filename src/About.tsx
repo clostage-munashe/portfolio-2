@@ -22,16 +22,24 @@ function About() {
         
         <div className="about-cards">
           <div className="info-card">
+            <span className="info-card-icon" aria-hidden="true">⌖</span>
             <h3>Location</h3>
-            <p> Warren Park 1, Harare, Zimbabwe</p>
+            <p>Warren Park 1, Harare, Zimbabwe</p>
           </div>
           <div className="info-card">
+            <span className="info-card-icon" aria-hidden="true">⌘</span>
             <h3>Education</h3>
             <p>Software Engineering (In Progress)</p>
           </div>
           <div className="info-card">
+            <span className="info-card-icon" aria-hidden="true">✦</span>
             <h3>Experience</h3>
             <p>Youth Coding Instructor</p>
+          </div>
+          <div className="info-card">
+            <span className="info-card-icon" aria-hidden="true">↗</span>
+            <h3>Focus</h3>
+            <p>Accessible, responsive web experiences</p>
           </div>
         </div>
       </div>

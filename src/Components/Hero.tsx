@@ -12,11 +12,18 @@ function Hero() {
         </p>
        
         <div className="hero-actions">
-          <a href="#projects" className="btn btn-primary">
+          <a href="#projects" className="btn btn-primary" aria-label="View my projects">
             View Projects
           </a>
-          <a href="#contact" className="btn btn-secondary">
-            Download Resume
+          <a
+            href="/Clostage-Munashe-CV.pdf"
+            className="btn btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Clostage-Munashe-CV.pdf"
+            aria-label="Open and download my CV"
+          >
+            Download CV
           </a>
         </div>
 
@@ -29,11 +36,16 @@ function Hero() {
 
       <div className="hero-right">
         <div className="hero-card">
-          {/* <img
+          <img
             className="hero-image"
-            src="/IMG-20250927-WA0020.jpg"
+            src="public/profile.jpg"
             alt="Clostage Munashe Mazhambe"
-          /> */}
+          />
+        </div>
+        <div className="hero-build-text" aria-hidden="true">
+          <span>Build</span>
+          <span>Create</span>
+          <span>Grow</span>
         </div>
       </div>
     </section>

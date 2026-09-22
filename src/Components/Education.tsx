@@ -8,6 +8,8 @@ function Education() {
 
       <div className="education-grid">
         <div className="education-card">
+          <span className="education-badge">Student</span>
+          <span className="education-icon" aria-hidden="true">⌘</span>
           <h3>Software Engineering</h3>
           <p>Uncommon.org|Certificate[Pending]</p>
           <p>
@@ -16,6 +18,7 @@ function Education() {
           </p>
         </div>
         <div className="education-card">
+          <span className="education-icon" aria-hidden="true">◆</span>
           <h3> 7 'O' Levels</h3>
           <p>Nyamhunga High School .[2021 - 2024]</p>
           

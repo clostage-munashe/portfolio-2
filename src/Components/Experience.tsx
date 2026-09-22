@@ -8,6 +8,7 @@ function Experience() {
 
       <div className="experience-grid">
         <div className="experience-card">
+          <span className="experience-icon" aria-hidden="true">⌘</span>
           <h3>Software Engineering Student</h3>
           <p>Uncommon.org • 2026 - Present</p>
           <ul>
@@ -18,6 +19,7 @@ function Experience() {
         </div>
 
         <div className="experience-card">
+          <span className="experience-icon" aria-hidden="true">✦</span>
           <h3>Youth Coding Instructor</h3>
           <p>Primary Schools · Harare • 2026 - Present</p>
           <ul>
