@@ -9,20 +9,28 @@ import Certifications from "./Components/Certifications";
 import Education from "./Components/Education";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import ProjectsPage from "./ProjectsPage";
 
 function App() {
   return (
     <>
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Certifications />
-        <Education />
-        <Contact />
+        {/* Simple path-based routing: /projects -> ProjectsPage, otherwise homepage sections */}
+        {typeof window !== 'undefined' && window.location.pathname.startsWith('/projects') ? (
+          <ProjectsPage />
+        ) : (
+          <>
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Experience />
+            <Certifications />
+            <Education />
+            <Contact />
+          </>
+        )}
       </main>
       <Footer />
     </>

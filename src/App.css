@@ -519,13 +519,15 @@ main {
    ========================================================= */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.15rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 1.2rem;
 }
 .project-card {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  display: block;
+  position: relative;
+  min-height: 460px;
+  overflow: visible;
   padding: 0 !important;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -541,6 +543,40 @@ main {
   border-color: #c2d5da;
   box-shadow: var(--shadow-md);
 }
+
+.project-card > .flip-inner { height: 100%; }
+
+/* animated decorative strip to fill blank space under card text */
+.project-animated-strip {
+  width: 100%;
+  height: 10px;
+  margin-top: 0.8rem;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.project-animated-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(23,104,139,0.24), rgba(244,107,99,0.18), rgba(255,255,255,0.02));
+  background-size: 200% 100%;
+  transform: translateZ(0);
+  filter: blur(8px);
+  opacity: 0.9;
+  animation: stripMove 3.5s linear infinite;
+}
+@keyframes stripMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* reduce motion for prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .project-animated-strip::before { animation: none; filter: blur(6px); }
+}
+
 /* =========================================================
    PROJECT IMAGE
    ========================================================= */
@@ -1236,6 +1272,129 @@ main {
   outline-offset: 3px;
 }
 /* =========================================================
+   ENHANCEMENTS: Glowing skill buttons, flip-cards, split cards
+   ========================================================= */
+
+/* Glowing skill tags */
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.6rem 0.2rem;
+  background: linear-gradient(180deg, rgba(230,241,244,0.06), rgba(255,255,255,0));
+  border-radius: 14px;
+}
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  border-radius: 18px 6px 18px 6px; /* asymmetric rounded corners like reference */
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(230,245,250,0.9));
+  border: 1px solid rgba(23,104,139,0.09);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.78rem;
+  box-shadow: 6px 8px 18px rgba(18,54,83,0.06), inset -2px -2px 6px rgba(255,255,255,0.7);
+  transition: box-shadow 260ms cubic-bezier(.2,.9,.26,1), transform 260ms cubic-bezier(.2,.9,.26,1), filter 260ms ease;
+}
+.skill-tag:hover,
+.skill-tag:focus {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(23,104,139,0.12), 0 0 22px rgba(23,104,139,0.06);
+  filter: saturate(1.05);
+}
+
+/* 3D flip card styles for Recent Work */
+.flip-card {
+  perspective: 1200px;
+}
+.flip-card .flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(.2,.9,.26,1);
+}
+.flip-card.is-flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+.project-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0.85rem 1rem;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+.flip-front {
+  z-index: 2;
+}
+.flip-back {
+  transform: rotateY(180deg);
+  padding: 1rem 1.15rem 1.2rem;
+  background: var(--surface);
+}
+.flip-hint {
+  margin-top: auto;
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  padding: 0.6rem 1rem;
+  align-self: start;
+}
+
+/* Split-layout cards for ProjectsPage */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.project-split {
+  display: grid;
+  grid-template-columns: 48% 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.project-split.alt {
+  grid-template-columns: 1fr 48%;
+}
+.project-split .project-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 320ms ease, box-shadow 320ms ease;
+}
+.project-split .project-image:hover img {
+  transform: scale(1.03);
+}
+.project-split .project-info {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+.project-split h3 {
+  margin-bottom: 0.6rem;
+}
+.project-split p {
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .project-split, .project-split.alt {
+    grid-template-columns: 1fr;
+  }
+  .project-split .project-image img { height: 200px; }
+}
+/* =========================================================
    REDUCED MOTION
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {
@@ -1247,4 +1406,359 @@ main {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* =========================================================
+   Isometric tile (CSS-based 3D visual) for Hero
+   Uses the `/profile.jpg` image from public/
+   ========================================================= */
+.iso-wrap {
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.isometric-tile {
+  width: 320px;
+  height: 160px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(24deg) rotateZ(-30deg);
+  transition: transform 420ms cubic-bezier(.2,.9,.26,1), box-shadow 320ms ease;
+}
+.isometric-tile:hover {
+  transform: rotateX(26deg) rotateZ(-30deg) translateY(-6px);
+}
+.iso-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 40px rgba(12,30,60,0.14), inset 0 1px 0 rgba(255,255,255,0.03);
+  border: 1px solid rgba(12,30,60,0.06);
+}
+.iso-top {
+  position: absolute;
+  left: 12%;
+  top: -18%;
+  width: 76%;
+  height: 40%;
+  background: linear-gradient(180deg,#ffffff,#e9f6ff);
+  transform: skewX(-30deg) rotateX(60deg);
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(12,30,60,0.08);
+  opacity: 0.95;
+}
+.iso-side {
+  position: absolute;
+  right: -36px;
+  top: 8%;
+  width: 36px;
+  height: 84%;
+  background: linear-gradient(180deg,#e6f1f9,#cfeaf6);
+  transform: skewY(-18deg) rotateY(12deg);
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(12,30,60,0.07);
+}
+.isometric-tile::after {
+  content: '';
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -18px;
+  height: 24px;
+  border-radius: 12px;
+  background: radial-gradient(ellipse at center, rgba(12,30,60,0.12), rgba(12,30,60,0.04));
+  filter: blur(10px);
+  transform: translateZ(-1px) scaleX(1.05);
+}
+
+@media (max-width: 900px) {
+  .isometric-tile { width: 260px; height: 130px; }
+  .iso-side { right: -28px; width: 28px; }
+}
+
+/* Social isometric micro-tiles */
+.hero-socials {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+.social-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 94px;
+  height: 34px;
+  padding: 0.2rem;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  transform: rotateZ(-12deg) skewX(-10deg);
+  box-shadow: 0 12px 28px rgba(12,30,60,0.08);
+  transition: transform 260ms cubic-bezier(.2,.9,.26,1), box-shadow 260ms ease, filter 260ms ease;
+}
+.social-tile .social-inner { display:inline-flex; align-items:center; justify-content:center; width:100%; }
+.social-tile svg { display:block; color: #fff; }
+.social-tile:hover,
+.social-tile:focus {
+  transform: rotateZ(-12deg) skewX(-10deg) translateY(-6px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(12,30,60,0.14), 0 0 18px rgba(0,0,0,0.06);
+  outline: none;
+}
+
+/* platform colors */
+.social-tile.github { background: linear-gradient(180deg,#111,#2b2b2b); }
+.social-tile.linkedin { background: linear-gradient(180deg,#0e76a8,#1b9be0); }
+.social-tile.email { background: linear-gradient(180deg,#ffffff,#f5f7fa); color: var(--navy); }
+.social-tile.email svg { color: var(--navy); }
+
+/* small screens: reduce rotation and size */
+@media (max-width: 760px) {
+  .social-tile { transform: none; width: 74px; height: 34px; border-radius: 8px; }
+  .social-tile:hover { transform: translateY(-4px) scale(1.02); }
+}
+
+/* All Projects 3x3 grid + entrance animation */
+.projects-grid-all {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.projects-grid-all .all-card {
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transform-origin: center center;
+  opacity: 0;
+  transform: translateY(18px) rotateX(12deg) translateZ(-50px) scale(0.98);
+  animation: flyIn 700ms cubic-bezier(.2,.9,.26,1) forwards;
+}
+
+/* staggered delays for up to 9 items */
+.projects-grid-all .all-card:nth-child(1) { animation-delay: 0ms; }
+.projects-grid-all .all-card:nth-child(2) { animation-delay: 80ms; }
+.projects-grid-all .all-card:nth-child(3) { animation-delay: 160ms; }
+.projects-grid-all .all-card:nth-child(4) { animation-delay: 240ms; }
+.projects-grid-all .all-card:nth-child(5) { animation-delay: 320ms; }
+.projects-grid-all .all-card:nth-child(6) { animation-delay: 400ms; }
+.projects-grid-all .all-card:nth-child(7) { animation-delay: 480ms; }
+.projects-grid-all .all-card:nth-child(8) { animation-delay: 560ms; }
+.projects-grid-all .all-card:nth-child(9) { animation-delay: 640ms; }
+
+.all-card:hover {
+  transform: translateY(-8px) rotateX(0deg) translateZ(10px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(18,54,83,0.12);
+}
+
+@keyframes flyIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) rotateX(12deg) translateZ(-50px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) translateZ(0) scale(1);
+  }
+}
+
+@media (max-width: 1100px) {
+  .projects-grid-all { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .projects-grid-all { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   Card glow / neon border effect (applies to all cards)
+   ========================================================= */
+/* Ensure cards can show outer glow */
+.project-card,
+.all-card,
+.project-split,
+.neumorphic-card {
+  position: relative;
+  overflow: visible; /* allow glow to render outside */
+  isolation: isolate;
+}
+
+/* Base glow layer using pseudo-element */
+.project-card::before,
+.all-card::before,
+.project-split::before,
+.neumorphic-card::before {
+  content: '';
+  position: absolute;
+  inset: -8px; /* extend beyond card */
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--card-hue1, rgba(244,107,99,0.18)), var(--card-hue2, rgba(23,104,139,0.16)));
+  filter: blur(18px);
+  opacity: 0.7;
+  transform: translateZ(0);
+  pointer-events: none;
+  transition: opacity 320ms ease, filter 320ms ease, transform 320ms ease;
+  mix-blend-mode: screen;
+}
+
+/* Subtle edge highlight / inner stroke */
+.project-card::after,
+.all-card::after,
+.project-split::after,
+.neumorphic-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Hover intensifies the glow and adds a slight lift */
+.project-card:hover::before,
+.all-card:hover::before,
+.project-split:hover::before,
+.neumorphic-card:hover::before {
+  filter: blur(26px);
+  opacity: 1;
+  transform: translateY(-6px) scale(1.02);
+}
+.project-card:hover,
+.all-card:hover,
+.project-split:hover,
+.neumorphic-card:hover {
+  transform: translateY(-6px);
+  z-index: 5;
+}
+
+/* slow animated hue shift to keep cards lively */
+@keyframes hueShift {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(8deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+.project-card::before,
+.all-card::before,
+.project-split::before,
+.neumorphic-card::before {
+  animation: hueShift 6s linear infinite;
+}
+
+/* Accent hue classes - use existing palette variables where possible */
+.hue-coral { --card-hue1: rgba(244,107,99,0.22); --card-hue2: rgba(241,180,170,0.12); }
+.hue-blue { --card-hue1: rgba(23,104,139,0.22); --card-hue2: rgba(154,205,220,0.12); }
+.hue-teal { --card-hue1: rgba(13,148,136,0.22); --card-hue2: rgba(150,230,220,0.12); }
+.hue-purple { --card-hue1: rgba(145,77,255,0.22); --card-hue2: rgba(200,170,255,0.12); }
+
+/* Apply a default hue to important cards to ensure visible color across site */
+.project-card { --card-hue1: rgba(23,104,139,0.18); --card-hue2: rgba(230,245,250,0.08); }
+.all-card { --card-hue1: rgba(244,107,99,0.16); --card-hue2: rgba(255,210,200,0.06); }
+.neumorphic-card { --card-hue1: rgba(13,148,136,0.14); --card-hue2: rgba(200,245,235,0.05); }
+
+/* Ensure card content sits above glow */
+.project-card > *, .all-card > *, .project-split > *, .neumorphic-card > * { position: relative; z-index: 3; }
+
+/* =========================================================
+   Tile effect applied to interactive elements (except hero social tiles)
+   ========================================================= */
+:where(.btn, .nav-button, .btn-send, .skill-tag, .neumorphic-button, .project-links a, .projects-view-all .btn):not(.social-tile) {
+  border-radius: 18px 6px 18px 6px;
+  /* preserve existing backgrounds (do not override) */
+  border: 1px solid rgba(23,104,139,0.08);
+  box-shadow: 6px 10px 24px rgba(18,54,83,0.06), inset -3px -3px 8px rgba(255,255,255,0.92);
+  transition: transform 260ms cubic-bezier(.2,.9,.26,1), box-shadow 260ms ease, filter 260ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:where(.btn, .skill-tag, .neumorphic-button, .project-links a, .projects-view-all .btn):not(.social-tile):hover,
+:where(.btn, .skill-tag, .neumorphic-button, .project-links a, .projects-view-all .btn):not(.social-tile):focus {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 44px rgba(23,104,139,0.12), 0 0 24px rgba(23,104,139,0.06);
+  filter: saturate(1.05);
+}
+
+/* For link-style project links, ensure padding and inline layout */
+.project-links a:not(.social-tile) { padding: 0.45rem 0.6rem; border-radius: 12px; }
+
+
+/* =========================================================
+   Neumorphic contact card + inputs
+   ========================================================= */
+.neumorphic-card {
+  background: linear-gradient(180deg, #f6f8fb, #eef5fb);
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: 8px 8px 20px rgba(18,54,83,0.06), -6px -6px 16px rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.contact-card h3 { margin-bottom: 0.6rem; }
+.contact-card p { color: var(--muted); margin-bottom: 1rem; }
+.contact-item { display:flex; gap:0.6rem; align-items:center; margin-top:0.6rem; }
+.contact-icon { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; background:transparent; border-radius:8px; }
+
+.contact-form { display:flex; flex-direction:column; gap:0.9rem; }
+.form-header { display:flex; align-items:center; gap:0.85rem; margin-bottom:0.25rem; }
+.avatar-circle { width:48px; height:48px; border-radius:50%; overflow:hidden; box-shadow: inset 0 2px 6px rgba(255,255,255,0.6), 0 8px 20px rgba(18,54,83,0.06); }
+.avatar-circle img { width:100%; height:100%; object-fit:cover; display:block; }
+.form-header h4 { margin:0; font-size:0.95rem; }
+
+.neumorphic-input, .neumorphic-textarea {
+  width:100%;
+  padding:0.85rem 1rem;
+  border-radius:12px;
+  border: none;
+  background: linear-gradient(180deg,#eef6fb,#ffffff);
+  box-shadow: inset 6px 6px 16px rgba(18,54,83,0.05), inset -6px -6px 12px rgba(255,255,255,0.9);
+  font-size:0.9rem;
+  color:var(--navy);
+  outline: none;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+.neumorphic-textarea { min-height:120px; resize:vertical; }
+.neumorphic-input:focus, .neumorphic-textarea:focus {
+  box-shadow: inset 6px 6px 18px rgba(23,104,139,0.06), inset -6px -6px 14px rgba(255,255,255,0.95), 0 8px 24px rgba(23,104,139,0.06);
+  transform: translateY(-2px);
+}
+
+.neumorphic-button {
+  align-self:flex-start;
+  padding:0.65rem 1rem;
+  border-radius:12px;
+  border:none;
+  background: linear-gradient(180deg,#e6f4ff,#dbeffd);
+  box-shadow: 6px 8px 20px rgba(18,54,83,0.06), -4px -4px 12px rgba(255,255,255,0.9);
+  color:var(--navy);
+  font-weight:700;
+}
+.neumorphic-button:hover { transform: translateY(-4px); box-shadow: 12px 18px 36px rgba(18,54,83,0.09); }
+
+/* small screens: stack contact grid */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* visually-hidden utility for accessible labels */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; border:0; padding:0; margin:-1px;
 }
