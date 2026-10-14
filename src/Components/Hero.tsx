@@ -4,8 +4,8 @@ function Hero() {
       <div className="hero-left">
         <p className="hero-tag">Hi, I'm</p>
         <h1>
-          Clostage
-          <span>Mazhambe</span>
+          Clostage Munashe Mazhambe
+          
         </h1>
         <h2>Software Engineer &amp; Full-Stack Developer</h2>
         <p className="hero-text">
