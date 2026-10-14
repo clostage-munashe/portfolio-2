@@ -32,7 +32,7 @@ function Contact() {
 
       <div className="contact-grid">
         <div className="contact-card neumorphic-card">
-          <h3>Get in Touch</h3>
+          <h3>Get in Touch</h3> x
           <p>
             I’m always open to new opportunities, collaborations, and exciting
             projects.

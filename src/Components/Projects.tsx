@@ -49,12 +49,16 @@ function Projects() {
                 </div>
 
                 <div className="project-links">
-                  <a href={project.githubUrl} target="_blank" rel="noreferrer">
-                    View Source
-                  </a>
-                  <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                    View Project
-                  </a>
+                  {project.githubUrl && (
+                    <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                      View Source
+                    </a>
+                  )}
+                  {project.liveUrl && (
+                    <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                      View Project
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

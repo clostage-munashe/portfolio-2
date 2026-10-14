@@ -19,7 +19,6 @@ function About() {
           </p>
         </div>
 
-        
         <div className="about-cards">
           <div className="info-card">
             <span className="info-card-icon" aria-hidden="true">⌖</span>

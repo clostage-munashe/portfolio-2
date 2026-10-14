@@ -14,10 +14,10 @@ export const projects: Project[] = [
     title: 'VisionLux Eye Clinic App',
     description:
       'A modern eye clinic management app that streamlines patient appointments, medical records, and billing processes.',
-    image: '/visionlux.jpg',
+    image: '/visionlux-logo.svg',
     tags: ['React', 'Tailwind CSS', 'JavaScript'],
-    githubUrl: '#',
-    liveUrl: '#',
+    githubUrl: '',
+    liveUrl: '',
   },
   {
     id: 5,
@@ -26,18 +26,18 @@ export const projects: Project[] = [
       'A responsive company website for a telecommunications and technology business, showcasing services, projects, case studies, and contact details.',
     image: '/jb-technologies (2).png',
     tags: ['React', 'Vite', 'JavaScript', 'CSS'],
-    githubUrl: '#',
+    githubUrl: '',
     liveUrl: 'https://jb-technologies.onrender.com',
   },
   {
     id: 3,
-    title: 'ParcelXpress',
+    title: 'Parcel Express',
     description:
       'A parcel delivery platform designed to make it easier for people to send and receive packages through bus transport networks in Zimbabwe.',
-    image: '/parcelxpress.png',
+    image: '/parcelxpress-logo.svg',
     tags: ['React', 'JavaScript', 'API', 'CSS'],
-    githubUrl: '#',
-    liveUrl: '#',
+    githubUrl: '',
+    liveUrl: '',
   },
   {
     id: 4,
@@ -46,8 +46,8 @@ export const projects: Project[] = [
       'A healthcare queue and appointment management system designed to help patients book appointments, manage queues, and connect with health services more efficiently.',
     image: '/smartqueue.jpg',
     tags: ['React', 'TypeScript', 'Node.js', 'Database'],
-    githubUrl: '#',
-    liveUrl: '#',
+    githubUrl: '',
+    liveUrl: '',
   },
   {
     id: 2,
@@ -56,8 +56,8 @@ export const projects: Project[] = [
       'A tourism platform helping travelers discover Zimbabwe destinations, plan trips, and access important travel information.',
     image: '/travelzim.jpg',
     tags: ['React', 'API', 'CSS'],
-    githubUrl: '#',
-    liveUrl: '#',
+    githubUrl: '',
+    liveUrl: '',
   },
   {
     id: 6,
@@ -66,8 +66,8 @@ export const projects: Project[] = [
       'A digital marketplace connecting families with funeral products and services, providing a simple way to discover and compare options.',
     image: '/memorial-marketplace.jpg',
     tags: ['React', 'TypeScript', 'API', 'CSS'],
-    githubUrl: '#',
-    liveUrl: '#',
+    githubUrl: '',
+    liveUrl: '',
   },
 ];
 

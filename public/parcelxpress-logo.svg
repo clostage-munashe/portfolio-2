@@ -1,0 +1,33 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#F5F5F3"/>
+
+  <g transform="translate(80 115)">
+    <g transform="translate(0 25)">
+      <path d="M225 26L520 180L520 516L225 360V26Z" fill="#0D6BB5"/>
+      <path d="M225 26L520 180L396 254L98 98L225 26Z" fill="#1D86D9"/>
+      <path d="M98 98L396 254V590L98 434V98Z" fill="#0F5E9A"/>
+      <path d="M225 26L98 98L396 254L520 180L225 26Z" fill="#0B4F87" opacity="0.35"/>
+
+      <path d="M179 224L301 153V423L179 492V224Z" fill="#F8FBFF" fill-opacity="0.15"/>
+      <path d="M322 277L420 229V431L322 479V277Z" fill="#DDEEFF" fill-opacity="0.18"/>
+
+      <path d="M164 224C170 209 189 198 203 194L334 136C353 130 373 135 387 151L403 169C421 188 423 217 409 237L310 358C298 374 279 382 260 380L204 374C183 372 164 356 159 335L143 272C136 250 147 236 164 224Z" fill="#FF9B2F"/>
+      <path d="M161 221C171 208 185 201 199 197L329 141C356 131 386 143 400 170L410 191C424 218 414 253 385 269L278 337C262 346 247 349 232 346L198 339C177 334 159 319 152 299L140 267C133 246 142 233 161 221Z" fill="#FFB055"/>
+      <path d="M142 270C163 287 129 320 147 350C164 379 193 382 218 395L327 454C344 462 363 465 382 463L423 456C447 452 469 440 485 422L496 410C520 382 523 334 503 304L460 237C445 214 419 198 390 198H269C228 198 187 224 164 263L142 270Z" fill="#F48E22"/>
+      <path d="M256 203L364 154L436 183L330 230L256 203Z" fill="#F3B569" fill-opacity="0.4"/>
+    </g>
+
+    <g>
+      <path d="M562 180C624 136 752 96 846 152C932 202 962 292 964 350C966 411 938 467 892 495C837 528 745 537 673 501C602 466 514 406 526 332C532 290 540 231 562 180Z" fill="#FF9B2F" fill-opacity="0.95"/>
+      <path d="M585 198C665 154 765 136 844 167C906 192 938 238 935 292C931 347 897 392 842 415C776 442 685 444 624 420C568 398 521 355 531 306C537 271 554 229 585 198Z" fill="#FFB154"/>
+      <path d="M626 251C676 222 724 210 782 221C833 231 868 259 884 288C898 315 890 342 861 359C831 378 774 403 718 410C660 417 610 404 579 376C552 351 553 291 626 251Z" fill="#FF8A1D"/>
+      <path d="M596 289L856 206L974 279L703 385L596 289Z" fill="#FF9F38" fill-opacity="0.75"/>
+    </g>
+  </g>
+
+  <g transform="translate(488 288)">
+    <text x="0" y="165" fill="#0D5F9D" font-family="'Segoe UI', Arial, sans-serif" font-size="118" font-weight="800" letter-spacing="-4">PARCEL</text>
+    <text x="0" y="296" fill="#0D5F9D" font-family="'Segoe UI', Arial, sans-serif" font-size="118" font-weight="800" letter-spacing="-4">EXPRESS</text>
+    <path d="M0 354H698" stroke="#F48E22" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>
