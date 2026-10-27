@@ -16,7 +16,7 @@ function Hero() {
       </div>
       <div className="hero-right">
         <div className="hero-photo-frame">
-          <img src="public/clostage.jpg" alt="Clostage Munashe Mazhambe" />
+          <img src="/clostage.jpg" alt="Clostage Munashe Mazhambe" />
         </div>
         <span className="hero-photo-caption">Based in Harare, Zimbabwe</span>
       </div>

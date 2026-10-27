@@ -1520,7 +1520,7 @@ main {
 
 /* =========================================================
    Isometric tile (CSS-based 3D visual) for Hero
-   Uses the `/profile.jpg` image from public/
+   Uses the `/clostage.jpg` image from public/
    ========================================================= */
 .iso-wrap {
   perspective: 1200px;
@@ -2069,8 +2069,8 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: center 37%;
-  filter: grayscale(100%) contrast(1.1);
-  mix-blend-mode: luminosity;
+  filter: none;
+  mix-blend-mode: normal;
 }
 .hero-photo-caption { color: #8a8a8a; font-size: 0.68rem; }
 .about-section {
@@ -2093,8 +2093,8 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
-  filter: grayscale(100%) contrast(1.08);
-  mix-blend-mode: luminosity;
+  filter: none;
+  mix-blend-mode: normal;
 }
 .about-copy .section-header { margin-bottom: 1.1rem; }
 .about-copy > p {

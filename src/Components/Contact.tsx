@@ -56,7 +56,7 @@ function Contact() {
         <form onSubmit={handleSubmit} className="contact-form neumorphic-card" aria-label="Contact form">
           <div className="form-header">
             <div className="avatar-circle" aria-hidden>
-              <img src="/profile.jpg" alt="" />
+              <img src="/clostage.jpg" alt="" />
             </div>
             <h4>Send a message</h4>
           </div>

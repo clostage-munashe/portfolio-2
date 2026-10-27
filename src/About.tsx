@@ -4,7 +4,7 @@ function About() {
   return (
     <section id="about" className="section about-section">
       <div className="about-photo">
-        <img src="/profile.jpg" alt="Clostage working at his computer" loading="lazy" />
+        <img src="/clostage.jpg" alt="Clostage Munashe Mazhambe" loading="lazy" />
       </div>
       <div className="about-copy">
         <div className="section-header">
