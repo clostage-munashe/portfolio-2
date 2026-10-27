@@ -67,7 +67,7 @@ function Projects() {
       </div>
 
       <div className="projects-view-all">
-        <a href="/projects" className="btn btn-secondary">
+        <a href="/#/projects" className="btn btn-secondary">
           View All Projects
         </a>
       </div>

@@ -96,6 +96,14 @@ main {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.menu-toggle {
+  display: none;
+}
 .logo {
   margin-right: auto;
 }
@@ -1077,38 +1085,74 @@ main {
 /* =========================================================
    MOBILE / TABLET
    ========================================================= */
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   main {
     width: min(calc(100% - 2rem), 620px);
   }
   .navbar {
-    min-height: auto;
-    padding: 1rem;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    min-height: 64px;
+    padding: 0.75rem 1rem;
+    justify-content: space-between;
   }
   .logo {
-    width: 100%;
     margin-right: 0;
+  }
+  .menu-toggle {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--navy);
+  }
+  .menu-toggle span {
+    display: block;
+    width: 19px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+  }
+  .nav-menu {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--line);
+    background: rgba(251, 250, 246, 0.98);
+    box-shadow: var(--shadow-md);
+  }
+  .nav-menu.is-open {
+    display: flex;
   }
   .nav-links {
-    order: 3;
+    display: flex;
     width: 100%;
     margin-right: 0;
-    gap: 1.1rem;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding-bottom: 0.3rem;
-    white-space: nowrap;
-    scrollbar-width: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    font-size: 0.9rem;
   }
-  .nav-links::-webkit-scrollbar {
+  .nav-links a {
+    padding: 0.7rem 0.25rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-links a::after {
     display: none;
   }
-  .nav-button {
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
+  .nav-menu .nav-button {
+    display: inline-flex;
+    align-self: flex-start;
   }
   /* Hero */
   .hero {
@@ -1203,13 +1247,6 @@ main {
   }
   .logo span {
     font-size: 1.05rem;
-  }
-  .nav-links {
-    gap: 0.9rem;
-    font-size: 0.68rem;
-  }
-  .nav-button {
-    display: none;
   }
   /* Hero */
   .hero {

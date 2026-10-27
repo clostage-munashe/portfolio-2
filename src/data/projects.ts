@@ -17,7 +17,7 @@ export const projects: Project[] = [
     image: '/visionlux-logo.svg',
     tags: ['React', 'Tailwind CSS', 'JavaScript'],
     githubUrl: '',
-    liveUrl: '',
+    liveUrl: 'https://vision-lux.onrender.com',
   },
   {
     id: 5,

@@ -15,7 +15,7 @@ function Hero() {
         </p>
 
         <div className="hero-actions">
-          <a href="/projects" className="btn btn-primary" aria-label="View my projects">
+          <a href="/#/projects" className="btn btn-primary" aria-label="View my projects">
             View My Work
           </a>
           <a
