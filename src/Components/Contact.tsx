@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 
 function Contact() {
   const [name, setName] = useState('');
@@ -16,9 +16,9 @@ function Contact() {
     setStatus('sending');
     const to = 'mazhambemunashe09@gmail.com';
     const subject = `Portfolio message from ${name || 'Visitor'}`;
-    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
     // open mail client with prefilled message
-    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
     setStatus('sent');
   };
@@ -32,7 +32,7 @@ function Contact() {
 
       <div className="contact-grid">
         <div className="contact-card neumorphic-card">
-          <h3>Get in Touch</h3> x
+          <h3>Get in Touch</h3>
           <p>
             I’m always open to new opportunities, collaborations, and exciting
             projects.
@@ -50,10 +50,7 @@ function Contact() {
             <a href="tel:+263778903787">+263 77 890 3787</a>
           </div>
 
-          <div className="contact-item">
-            <span className="contact-icon">📍</span>
-            <span>Harare, Zimbabwe</span>
-          </div>
+
         </div>
 
         <form onSubmit={handleSubmit} className="contact-form neumorphic-card" aria-label="Contact form">

@@ -14,7 +14,7 @@ export const projects: Project[] = [
     title: 'VisionLux Eye Clinic App',
     description:
       'A modern eye clinic management app that streamlines patient appointments, medical records, and billing processes.',
-    image: '/visionlux-logo.svg',
+    image: '/visionlux.jpg',
     tags: ['React', 'Tailwind CSS', 'JavaScript'],
     githubUrl: '',
     liveUrl: 'https://vision-lux.onrender.com',

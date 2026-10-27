@@ -6,7 +6,8 @@ function Navbar() {
   return (
     <header className="navbar-shell">
       <div className="navbar">
-        <a className="logo" href="/" aria-label="Clostage home">
+        <a className="logo" href="/" aria-label="Clostage Munashe home">
+          <span className="logo-mark">CM</span>
           <span>Clostage</span>
         </a>
 
@@ -26,16 +27,17 @@ function Navbar() {
         <div className={`nav-menu${menuOpen ? " is-open" : ""}`}>
           <nav id="main-navigation" className="nav-links" aria-label="Main navigation">
             <a href="/" onClick={() => setMenuOpen(false)}>Home</a>
-            <a href="/#about" onClick={() => setMenuOpen(false)}>About</a>
-            <a href="/#skills" onClick={() => setMenuOpen(false)}>Skills</a>
+            <a href="/#about" onClick={() => setMenuOpen(false)}>About me</a>
+            <a href="/#services" onClick={() => setMenuOpen(false)}>Services</a>
             <a href="/#/projects" onClick={() => setMenuOpen(false)}>Projects</a>
             <a href="/#experience" onClick={() => setMenuOpen(false)}>Experience</a>
-            <a href="/#certifications" onClick={() => setMenuOpen(false)}>Certifications</a>
-            <a href="/#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+            <a href="/#education" onClick={() => setMenuOpen(false)}>Education</a>
+            <a href="/#certifications" onClick={() => setMenuOpen(false)}>Certificates</a>
+            <a href="/#/contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </nav>
 
-          <a href="/#contact" className="nav-button" onClick={() => setMenuOpen(false)}>
-            Work With Us
+          <a href="/Munashe_Clostage_Mazhambe_CV.pdf" className="nav-button" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
+            Resume
           </a>
         </div>
       </div>
